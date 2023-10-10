@@ -1,0 +1,30 @@
+@font-face {
+  font-family: main-font;
+  src: url('../public//font/Mulish-VariableFont_wght.ttf');
+}
+:root {
+  --first-color: #fff;
+  --second-color: #4361ee;
+}
+::-webkit-scrollbar{
+  display: none;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  font-family: main-font;
+  scroll-behavior: smooth;
+}
+.App {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.link{
+  text-decoration: none;
+  color: inherit;
+}

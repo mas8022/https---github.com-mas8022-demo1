@@ -1,0 +1,97 @@
+.momLoginModal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  backdrop-filter: blur(20px);
+  top: 0px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear 0.3s;
+}
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+.loginModal {
+  width: 55rem;
+  height: 40rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px -5px #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem;
+  background-color: var(--first-color);
+  margin: 2rem;
+}
+.titleLoginModal {
+  font-size: 2rem;
+  color: var(--second-color);
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+.describeLoginModal {
+  font-size: 1.5rem;
+  color: gray;
+  text-align: center;
+  height: 13rem;
+}
+.btnsLoginModal {
+  width: 50%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginBtnModal {
+  width: 12rem;
+  height: 4rem;
+  background: var(--second-color);
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all linear 0.3s;
+  font-size: 1.8rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+}
+.loginBtnModal:hover {
+  filter: brightness(120%);
+}
+.loginBtnModal:active {
+  filter: brightness(50%);
+}
+.loginForm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+.loginForm input {
+  width: 70%;
+  background-color: gray;
+  height: 3rem;
+  border-radius: 5px;
+  border: 0px;
+  padding: 2px 1rem;
+  transition: all linear 0.07s;
+  color: var(--first-color);
+}
+.loginForm input::placeholder {
+  color: var(--first-color);
+}
+.loginForm input:focus {
+  outline: 2px solid var(--second-color);
+}

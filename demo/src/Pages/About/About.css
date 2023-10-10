@@ -1,0 +1,16 @@
+.about{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12rem 3rem 12rem 3rem;
+}
+.AlertIconAboutPage{
+    color: var(--second-color);
+    margin-bottom: 3rem;
+}
+.about p{
+    font-size: 1.6rem;
+}

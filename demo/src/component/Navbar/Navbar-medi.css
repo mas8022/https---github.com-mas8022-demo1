@@ -1,0 +1,32 @@
+@media screen and (max-width: 800px) {
+  .navLeft {
+    font-size: 3rem;
+  }
+  .navRight {
+    display: none;
+  }
+  .bottomBar {
+    display: flex;
+  }
+  .ProfileNav {
+    display: block;
+  }
+  .searchBar {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 560px) {
+  .suggestionList {
+    width: 39rem;
+    padding: 0.5rem 0;
+    border-radius: 0px 0px 20px 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .nav {
+    padding: 0 1rem;
+  }
+  .searchBar {
+    width: 50%;
+  }
+}

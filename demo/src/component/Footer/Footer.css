@@ -1,0 +1,93 @@
+.footer {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  box-shadow: 0px 0px 20px -10px #000;
+  align-items: center;
+  padding: 4rem;
+  margin-top: 3rem;
+}
+.leftFooter {
+  width: 50%;
+  height: 100%;
+}
+.leftFooter h2 {
+  color: var(--second-color);
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.footerList {
+  width: 100%;
+  height: 50%;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+}
+.footerHr {
+  width: 1px;
+  background: #000;
+  height: 70%;
+}
+.footerList ul {
+  font-size: 2.2rem;
+  margin-left: 5rem;
+  list-style-type: none;
+  margin-bottom: -2rem;
+}
+.footerList ul li {
+  transition: all linear 0.3s;
+  cursor: pointer;
+  padding: 0 1rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+}
+.footerList ul li:hover {
+  transform: translateX(10px);
+  background: rgba(2, 2, 87, 0.292);
+  color: var(--first-color);
+}
+.footer p {
+  font-size: 1.5rem;
+  color: gray;
+  margin-top: 3rem;
+  width: 90%;
+}
+.rightFooter {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 4rem;
+}
+.footerMap {
+  width: 77%;
+  height: 120%;
+  background: url("https://embassies.net/media//embassy/south-korea-embassy-in-tehran-iran.png");
+  background-repeat: no-repeat;
+  background-size: calc(100%) calc(100%);
+  background-repeat: no-repeat;
+}
+.footerHr2 {
+  margin-left: 5rem;
+  width: 1px;
+  height: 100%;
+}
+.socialMediaFooter {
+  width: 10rem;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.socialMediaFooterIcons {
+  color: var(--second-color);
+  transition: all linear 0.3s;
+  cursor: pointer;
+}
+.socialMediaFooterIcons:hover {
+  filter: brightness(150%);
+}
+.footerList {
+  margin-left: -8rem;
+}

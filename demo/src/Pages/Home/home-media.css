@@ -1,0 +1,53 @@
+@media screen and (max-width: 1276px) {
+  .nav {
+    height: 8.2rem;
+  }
+}
+@media screen and (max-width: 845px) {
+  .homeLeft h3 {
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 1rem;
+}
+}
+@media screen and (max-width: 800px) {
+  .home {
+    height: auto;
+    justify-content: center;
+  }
+  .homeLeft {
+    width: 90%;
+  }
+  .homeRight {
+    display: none;
+  }
+}
+@media screen and (max-width: 601px) {
+  .homeLeft ul {
+    margin-bottom: -3rem !important;
+  }
+}
+@media screen and (max-width: 533px) {
+  .home {
+    height: 80rem;
+  }
+  .homeLeft {
+    height: 80rem;
+  }
+}
+@media screen and (max-width: 420px) {
+  .home {
+    height: 90rem;
+  }
+  .homeLeft {
+    height: 90rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .home {
+    height: 105rem;
+  }
+  .homeLeft {
+    height: 105rem;
+  }
+}

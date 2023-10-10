@@ -1,0 +1,156 @@
+.momNav{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.nav {
+  width: 100%;
+  height: 8rem;
+  background: var(--second-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  z-index: 999;
+}
+.navLeft {
+  font-size: 3.5rem;
+  color: var(--first-color);
+  width: 6.5rem;
+  height: 6.5rem;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background: url("../../../public//image//4c570289300840c5938eb8650592ebf2-removebg-preview.png");
+}
+.navRight {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+}
+.navRight li {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  margin-left: 2rem;
+  cursor: pointer;
+  transition: all ease-in 0.2s;
+}
+.navRight li:hover {
+  filter: brightness(50%);
+}
+.navRight li:active {
+  filter: brightness(150%);
+}
+.bottomBar {
+  width: 100%;
+  height: 8rem;
+  background: var(--second-color);
+  position: fixed;
+  bottom: -1px;
+  left: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  padding: 0;
+  display: none;
+}
+.ProfileNav{
+  display: none;
+}
+.profile {
+  width: 6rem;
+  height: 6rem;
+  background: var(--first-color);
+  border-radius: 50%;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+.searchBar {
+  width: 25%;
+  height: 58%;
+  background: #ffffff68;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+.searchIcon {
+  color: #fff;
+  cursor: pointer;
+  margin-left: 4px;
+  margin-top: 4px;
+  transition: all linear 0.3s;
+}
+.searchIcon:hover{
+  filter: brightness(50%);
+}
+.searchIcon:active{
+  filter: brightness(150%);
+}
+.searchInput {
+  width: 90%;
+  height: 100%;
+  border-radius: 5px;
+  background: #ffffff68;
+  outline: 0px;
+  border: 0px;
+  padding: 0 1rem;
+  color: black;
+  font-size: 1.5rem;
+}
+.itemSuggestionList{
+  width: 100%;
+  height: 7rem;
+  border-bottom: 1px solid var(--second-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all linear 0.3s;
+  padding: 0 2rem;
+}
+.itemSuggestionList:hover{
+  background: rgba(3, 31, 86, 0.18);
+}
+.itemSuggestionList img{
+  width: 10rem;
+  height: 6rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.courseNameList{
+  font-size: 1.7rem;
+  color: var(--second-color);
+  font-weight: 600;
+}
+.masterNameList{
+  font-size: 1.5rem;
+  color: gray;
+}
+.activeSuggestionList{
+  width: 50rem;
+  max-height: 50rem;
+  overflow-y: scroll;
+  z-index: 998;
+  background: #fff;
+  margin-top: 81px;
+  position: fixed;
+  box-shadow: 0px 0px 10px -5px #000;
+  padding: 2rem;
+}
+.closeSuggestionList{
+  height: 0px !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  
+}

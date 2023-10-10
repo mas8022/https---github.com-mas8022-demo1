@@ -1,0 +1,65 @@
+@media screen and (max-width: 900px) {
+  .leftShowCourse,
+  .rightShowCourse {
+    height: 33rem;
+  }
+}
+@media screen and (max-width: 720px) {
+  .showCourse {
+    height: 85rem;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .rightShowCourse {
+    margin-bottom: 8rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .showCourse {
+    margin-bottom: 10rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .rightShowCourse {
+    margin-bottom: 4rem;
+  }
+  .leftShowCourse p {
+    margin-bottom: 3rem;
+  }
+  .leftShowCourse {
+    align-items: center;
+    padding: 0;
+  }
+  .leftShowCourse hr {
+    width: 100%;
+  }
+  .masternameShowCourse {
+    font-size: 2rem;
+  }
+  .ShowCoursebtns div {
+    width: 16rem;
+    height: 5rem;
+    margin-top: 3rem;
+  }
+  .showCourse {
+    height: 81rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  .leftShowCourse,
+  .rightShowCourse {
+    height: 28rem;
+  }
+  .ShowCoursebtns {
+    width: 33rem;
+  }
+  .showCourse {
+    margin-bottom: 15rem;
+  }
+  .leftShowCourse p {
+    margin-bottom: 4rem;
+  }
+  .showCourse {
+    height: 70rem;
+  }
+}
