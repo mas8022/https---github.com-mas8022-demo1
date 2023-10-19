@@ -6,7 +6,13 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import NS from "../NS/NS";
+import { Link } from "react-router-dom";
 export default function Footer() {
+
+  const scrollUpFooterBtnsHandle = () => {
+    window.scrollTo(0,0)
+  }
+
   return (
     <>
       <div className="footer">
@@ -14,11 +20,21 @@ export default function Footer() {
           <h2>Irannet the best training academy</h2>
           <div className="footerList">
             <ul>
-              <li>Home</li>
-              <li>New Product</li>
-              <li>My Basket</li>
-              <li>Profile</li>
-              <li>About</li>
+              <Link to="/" className="link" onClick={() => scrollUpFooterBtnsHandle()}>
+                <li>Home</li>
+              </Link>
+              <Link to="/product" className="link" onClick={() => scrollUpFooterBtnsHandle()}>
+                <li>Product</li>
+              </Link>
+              <Link to="/myBasket" className="link" onClick={() => scrollUpFooterBtnsHandle()}>
+                <li>My Basket</li>
+              </Link>
+              <Link to="/profile" className="link" onClick={() => scrollUpFooterBtnsHandle()}>
+                <li>Profile</li>
+              </Link>
+              <Link to="/about" className="link" onClick={() => scrollUpFooterBtnsHandle()}>
+                <li>About</li>
+              </Link>
             </ul>
             <ul>
               <li>Direction</li>
@@ -61,7 +77,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <NS/>
+      <NS />
     </>
   );
 }

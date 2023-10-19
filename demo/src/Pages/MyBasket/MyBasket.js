@@ -11,7 +11,7 @@ export default function MyBasket() {
 
   useEffect(() => {
     ProductBasketInfoArray.productAdded.forEach((item) => {
-      setAllCost((perv) => perv + item.price);
+      setAllCost((perv) => Number(perv) + Number(item.priceCourseCms));
     });
 
   }, []);

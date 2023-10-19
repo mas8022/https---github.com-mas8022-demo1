@@ -1,0 +1,60 @@
+.CmsNavbar {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 4rem;
+  background: var(--second-color);
+}
+.logoCmsNavBar {
+  width: 8rem;
+  height: 8rem;
+  background: url("../../../../public//image/4c570289300840c5938eb8650592ebf2-removebg-preview.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.CmsNavbarBtns {
+  width: 26rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.CmsNavbarBtns div {
+  width: 12rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--first-color);
+  color: var(--second-color);
+  border-radius: 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all linear 0.3s;
+}
+.CmsNavbarBtns div:hover {
+  border: 1px var(--first-color) solid;
+  color: var(--first-color);
+  background: var(--second-color);
+}
+.managerProfile {
+  width: 6rem;
+  height: 6rem;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+}
+.selectCmsPageActive{
+  background: var(--second-color) !important;
+  color: var(--first-color) !important;
+  border: 3px solid var(--first-color) !important;
+  border-radius: 10px !important;
+}
+
+

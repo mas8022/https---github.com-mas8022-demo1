@@ -42,3 +42,6 @@
 .paginationBtn:active {
   filter: brightness(50%);
 }
+.paginationBtnActive{
+  filter: brightness(50%);
+}

@@ -80,3 +80,6 @@
 .seeCourseBtn:active{
     filter: brightness(50%);
 }
+.imageCard{
+  height: 19.75rem;
+}

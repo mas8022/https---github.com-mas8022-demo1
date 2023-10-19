@@ -1,8 +1,13 @@
 @media screen and (max-width: 600px) {
-    .loginForm input {
-        width: 90%;
-    }
-    .btnsLoginModal {
-        width: 70%;
-    }
+  .loginForm input {
+    width: 90%;
+  }
+  .btnsLoginModal {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 460px) {
+  .btnsLoginModal {
+    width: 26rem;
+  }
 }

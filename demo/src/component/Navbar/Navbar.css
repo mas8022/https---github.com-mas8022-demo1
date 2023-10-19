@@ -154,3 +154,6 @@
   margin: 0px !important;
   
 }
+.navBarItemActive{
+  filter: brightness(50%);
+}

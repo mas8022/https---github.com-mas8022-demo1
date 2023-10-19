@@ -1,0 +1,5 @@
+@media screen and (max-width: 900px) {
+    .userInfoCmsFlex{
+        flex-direction: column-reverse !important;
+    }
+}

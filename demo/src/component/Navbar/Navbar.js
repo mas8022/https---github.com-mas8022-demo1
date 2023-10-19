@@ -1,18 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import "./Navbar-medi.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import InfoIcon from "@mui/icons-material/Info";
-import courses from "../../dataBase";
+
 export default function Navbar() {
   const [searchInput, setSearchInput] = useState("");
   const [showCoursesListArray, setShowCoursesListArray] = useState([]);
   const sgList = useRef(null);
-  const [productFind, setProductFind] = useState({});
+  const [productsArrayNavbar, setProductsArrayNavbar] = useState([]);
+
   useEffect(() => {
     function closeSgListSearchBarHandle(event) {
       if (sgList.current && !sgList.current.contains(event.target)) {
@@ -32,9 +33,9 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    let showCoursesList = courses.filter((item) => {
+    let showCoursesList = productsArrayNavbar.filter((item) => {
       if (searchInput) {
-        return item.courseName
+        return item[1].courseNameCms
           .toLowerCase()
           .trim()
           .includes(searchInput.toLowerCase().trim());
@@ -44,6 +45,16 @@ export default function Navbar() {
     setShowCoursesListArray(showCoursesList);
   }, [searchInput]);
 
+  const sgItemHandler = () => {
+    window.scrollTo(0, 0);
+    setSearchInput("");
+  };
+
+  useEffect(() => {
+    fetch("https://demo1react-a5250-default-rtdb.firebaseio.com/product.json")
+      .then((res) => res.json())
+      .then((data) => setProductsArrayNavbar(Object.entries(data)));
+  }, []);
 
   return (
     <div className="momNav">
@@ -53,7 +64,11 @@ export default function Navbar() {
         <div className="searchBar">
           <Link
             onClick={() => setSearchInput("")}
-            to={showCoursesListArray.length ? `/ShowCourse/:${showCoursesListArray[0].courseName}` : '/'}
+            to={
+              showCoursesListArray.length
+                ? `/ShowCourse/:${showCoursesListArray[0][1].courseNameCms}`
+                : "/"
+            }
           >
             <SearchIcon className="searchIcon" style={{ fontSize: 36 }} />
           </Link>
@@ -67,23 +82,23 @@ export default function Navbar() {
         </div>
 
         <ul className="navRight">
-          <Link onClick={() => scrollUp()} to="/" className="link">
+          <NavLink onClick={() => scrollUp()} to="/" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
             <li>HOME</li>
-          </Link>
-          <Link onClick={() => scrollUp()} to="/product" className="link">
+          </NavLink>
+          <NavLink onClick={() => scrollUp()} to="/product" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
             <li>PRODUCT</li>
-          </Link>
+          </NavLink>
 
-          <Link onClick={() => scrollUp()} to="/myBasket" className="link">
+          <NavLink onClick={() => scrollUp()} to="/myBasket" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
             <li>MYBASKET</li>
-          </Link>
-          <Link onClick={() => scrollUp()} to="/profile" className="link">
+          </NavLink>
+          <NavLink onClick={() => scrollUp()} to="/profile" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
             <li>PROFILE</li>
-          </Link>
+          </NavLink>
 
-          <Link onClick={() => scrollUp()} to="/about" className="link">
+          <NavLink onClick={() => scrollUp()} to="/about" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
             <li>ABOUT</li>
-          </Link>
+          </NavLink>
         </ul>
         <Link
           onClick={() => scrollUp()}
@@ -100,19 +115,19 @@ export default function Navbar() {
         </Link>
 
         <ul className="bottomBar">
-          <Link onClick={() => scrollUp()} to="/" className="link">
+          <NavLink onClick={() => scrollUp()} to="/" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
             <HomeIcon style={{ fontSize: 36 }} />
-          </Link>
-          <Link onClick={() => scrollUp()} to="/product" className="link">
+          </NavLink>
+          <NavLink onClick={() => scrollUp()} to="/product" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
             <InventoryIcon style={{ fontSize: 36 }} />
-          </Link>
+          </NavLink>
 
-          <Link onClick={() => scrollUp()} to="/myBasket" className="link">
+          <NavLink onClick={() => scrollUp()} to="/myBasket" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
             <ShoppingBasketIcon style={{ fontSize: 36 }} />
-          </Link>
-          <Link onClick={() => scrollUp()} to="/about" className="link">
+          </NavLink>
+          <NavLink onClick={() => scrollUp()} to="/about" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
             <InfoIcon style={{ fontSize: 36 }} />
-          </Link>
+          </NavLink>
         </ul>
       </div>
 
@@ -126,14 +141,14 @@ export default function Navbar() {
       >
         {showCoursesListArray.map((product) => (
           <Link
-            onClick={() => setSearchInput("")}
+            onClick={() => sgItemHandler()}
             className="link"
-            to={`/ShowCourse/:${product.courseName}`}
+            to={`/ShowCourse/:${product[1].courseNameCms}`}
           >
-            <div key={product.id} className="itemSuggestionList">
-              <img src={product.image} alt="ProductImage" />
-              <p className="courseNameList">{product.courseName}</p>
-              <p className="masterNameList">{product.masterName}</p>
+            <div key={product[0]} className="itemSuggestionList">
+              <img src={product[1].imageCourseSrcCms} alt="ProductImage" />
+              <p className="courseNameList">{product[1].courseNameCms}</p>
+              <p className="masterNameList">{product[1].masterNameCms}</p>
             </div>
           </Link>
         ))}

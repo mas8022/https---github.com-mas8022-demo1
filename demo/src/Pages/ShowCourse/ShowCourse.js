@@ -2,17 +2,43 @@ import React, { useContext, useEffect, useState } from "react";
 import "./ShowCourse.css";
 import "./ShowCourse-media.css";
 import { useParams } from "react-router-dom";
-import courses from "../../dataBase";
 import { siteContext } from "../../Context";
+import Loader from "../../component/Loader/Loader";
 
 export default function ShowCourse() {
-  const [findCourse, setFindCourse] = useState({});
+  const [findCourse, setFindCourse] = useState([]);
+  const [loader, setLoader] = useState(true);
   let Params = useParams();
 
   useEffect(() => {
-    setFindCourse(
-      courses.find((item) => item.courseName === Params.courseName.slice(1))
-    );
+    fetch("https://demo1react-a5250-default-rtdb.firebaseio.com/product.json")
+      .then((res) => res.json())
+      .then((data) => {
+        let allProduct = Object.entries(data);
+
+        setFindCourse(
+          allProduct.find(
+            (item) => item[1].courseNameCms === Params.courseName.slice(1)
+          )[1]
+        );
+        setLoader(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    setLoader(true);
+    fetch("https://demo1react-a5250-default-rtdb.firebaseio.com/product.json")
+      .then((res) => res.json())
+      .then((data) => {
+        let allProduct = Object.entries(data);
+
+        setFindCourse(
+          allProduct.find(
+            (item) => item[1].courseNameCms === Params.courseName.slice(1)
+          )[1]
+        );
+        setLoader(false);
+      });
   }, [Params]);
 
   let productInfoArray = useContext(siteContext);
@@ -26,13 +52,14 @@ export default function ShowCourse() {
 
   return (
     <>
+      <Loader loader={loader} />
       <div className="showCourse">
         <div className="leftShowCourse">
           <h3 className="masternameShowCourse">
-            {findCourse.masterName} (Master Name)
+            {findCourse.masterNameCms} (Master Name)
           </h3>
           <hr />
-          <p>{findCourse.describe}</p>
+          <p>{findCourse.describeCourseCms}</p>
 
           <div className="ShowCoursebtns">
             <div className="videoDownloadBtn">Buy Course</div>
@@ -45,7 +72,7 @@ export default function ShowCourse() {
           </div>
         </div>
         <div className="rightShowCourse">
-          <h2 className="courseTitle">{findCourse.courseName}</h2>
+          <h2 className="courseTitle">{findCourse.courseNameCms}</h2>
           <hr />
           <video
             id="my-video"

@@ -1,0 +1,29 @@
+@media screen and (max-width: 1150px) {
+  .cmsFlex {
+    flex-direction: column-reverse !important;
+  }
+  .leftCmsProduct,
+  .rightCmsProduct {
+    width: 100%;
+  }
+  .cmsFormBtns{
+    width: 30rem;
+  }
+}
+@media screen and (max-width: 850px) {
+    .sgCourseListCmsItem {
+        display: flex;
+        flex-direction: column;
+        width: 35rem;
+        height: 35rem !important;
+    }
+    .sgCourseListCmsItemImage{
+        border-radius: 10px 10px 0px 0px;
+        height: 20rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .sgCourseListCmsItem{
+        width: 100%;
+    }
+}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import "./home-media.css";
+import "./Home-media.css";
 import SiteModals from "../../component/tools/Modals/Modals";
 
 export default function Home() {

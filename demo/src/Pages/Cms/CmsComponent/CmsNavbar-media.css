@@ -1,0 +1,20 @@
+@media screen and (max-width: 520px) {
+    .CmsNavbarBtns div {
+        width: 10rem;
+        font-size: 1.2rem;
+    }
+    .CmsNavbarBtns {
+        width: 21rem;
+    }
+    
+}
+@media screen and (max-width: 460px) {
+    .CmsNavbarBtns {
+        width: 12rem;
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+    .CmsNavbarBtns div{
+        height: 2.7rem;
+    }
+}

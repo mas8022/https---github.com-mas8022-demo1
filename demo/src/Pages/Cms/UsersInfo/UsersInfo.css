@@ -1,0 +1,147 @@
+.usersInfo {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1005;
+}
+.userInfoCmsFlex {
+  width: 100%;
+  height: auto;
+  display: flex;
+  background: var(--first-color);
+}
+.userInfoCmsFlex-left {
+  flex: 1.25;
+  width: 100%;
+  height: 100%;
+  padding: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userInfoCmsFlex-left form {
+  width: 95%;
+  height: 95%;
+  background: gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+.userInfoCmsFlex-left form input {
+  width: 100%;
+  height: 4rem;
+  background: var(--first-color);
+  padding: 0.5rem 1.5rem;
+  font-size: 1.7rem;
+  color: gray;
+  border-radius: 10px;
+  border: 0px;
+  margin-bottom: 1.7rem;
+}
+.userInfoCmsFlex-left form label {
+  align-self: flex-start;
+  font-size: 1.8rem;
+  color: var(--first-color);
+}
+.userInfoCmsFormBtns {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.userInfoCmsFormBtn {
+  width: 6rem;
+  height: 6rem;
+  background: var(--second-color);
+  color: var(--first-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all linear 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.userInfoCmsFormBtn:hover {
+  background: var(--first-color);
+  color: var(--second-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all linear 0.3s;
+}
+.userInfoCmsFormBtn:active {
+  filter: brightness(50%);
+}
+.userInfoCmsFlex-right {
+  flex: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem;
+}
+.userInfoCmsFlex-right input {
+  width: 60%;
+  height: 5rem;
+  background: var(--first-color);
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  color: gray;
+  font-weight: 600;
+  margin-bottom: 4rem;
+}
+.usersCmsList {
+  width: 100%;
+  height: 42rem;
+  border-top: 3px solid var(--second-color);
+  border-bottom: 3px solid var(--second-color);
+  padding: 0 2rem;
+  overflow-y: scroll;
+}
+.usersCmsListItem {
+  width: 100%;
+  height: 15rem;
+  background: #00000059;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 15px;
+  transition: all linear 0.2s;
+  cursor: pointer;
+}
+.usersCmsListItem:hover{
+    transform: scale(103%);
+}
+.describeUsersCmsListItem {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.imageUsersCmsListItem {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: var(--first-color);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.describeUsersCmsListItem p {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  border-bottom: 1px solid var(--first-color);
+}
+.describeUsersCmsListItem span {
+  margin-left: 2rem;
+}
