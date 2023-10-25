@@ -4,6 +4,7 @@
   padding: 1.5rem;
   display: flex;
   padding-top: 8rem;
+  background: var(--first-color);
 }
 .leftProfilePage {
   width: 50%;
@@ -82,3 +83,4 @@
 .frfr {
   margin-bottom: 3rem;
 }
+

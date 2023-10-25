@@ -71,7 +71,6 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
   };
 
   useEffect(() => {
-    console.log("yes");
     if (
       !phonNumberRegexFlag &&
       !emailRegexFlag &&

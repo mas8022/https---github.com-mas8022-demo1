@@ -29,7 +29,11 @@ export default function Profile() {
               {userData.newUserInfo.password}
             </label>
           </div>
-          <Link onClick={() => window.scrollTo(0,0)} to="/about" className="link">
+          <Link
+            onClick={() => window.scrollTo(0, 0)}
+            to="/about"
+            className="link"
+          >
             <div className="moreBtnProfilePage">More...</div>
           </Link>
         </div>

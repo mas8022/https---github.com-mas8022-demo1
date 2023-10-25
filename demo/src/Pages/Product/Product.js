@@ -44,7 +44,6 @@ export default function Product() {
       .forEach((item) => (item.className = "paginationBtn"));
     e.target.className = "paginationBtn paginationBtnActive";
   };
-
   return (
     <>
       <Loader loader={loader} />
@@ -52,7 +51,7 @@ export default function Product() {
         <div className="newProduct">
           {newPaginationArray.length
             ? newPaginationArray.map((item, index) => (
-                <Carding key={index} {...item[1]} />
+                <Carding key={index} {...item[1]} mode={'see'} />
               ))
             : ""}
         </div>

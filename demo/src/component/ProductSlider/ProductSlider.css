@@ -1,0 +1,12 @@
+.productSlider {
+  width: 100%;
+  height: 40rem;
+  padding: 2rem;
+  background: var(--first-color);
+}
+.productSlider h2{
+  font-size: 3rem;
+  color: var(--second-color);
+  font-weight: 600;
+  border-bottom: 2px solid gray;
+}

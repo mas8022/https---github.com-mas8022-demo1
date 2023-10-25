@@ -26,6 +26,11 @@
     margin-bottom: 5rem;
   }
 }
+@media screen and (max-width: 800px) {
+  .them{
+    bottom: 11rem;
+  }
+}
 @media screen and (max-width: 450px) {
   .ProfilePageImage {
     width: 30rem;

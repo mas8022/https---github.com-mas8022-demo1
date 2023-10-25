@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 import "./Home-media.css";
 import SiteModals from "../../component/tools/Modals/Modals";
+import ProductSlider from "../../component/ProductSlider/ProductSlider";
 
 export default function Home() {
   const [closeLoginModal, setCloseLoginModal] = useState(false);
@@ -47,13 +48,16 @@ export default function Home() {
               </div>
 
               <Link to="/about" className="link">
-                <div onClick={() => window.scrollTo(0,0)} className="moreBtn">More...</div>
+                <div onClick={() => window.scrollTo(0, 0)} className="moreBtn">
+                  More...
+                </div>
               </Link>
             </div>
           </div>
 
           <div className="homeRight"></div>
         </div>
+        <ProductSlider/>
       </div>
 
       <SiteModals

@@ -6,6 +6,7 @@ import routesArray from "./routes";
 import { siteContext } from "./Context";
 import Footer from "./component/Footer/Footer";
 import Loader from "./component/Loader/Loader";
+import ThemSite from "./component/tools/ThemSite/ThemSite";
 
 function App() {
   let routes = useRoutes(routesArray);
@@ -45,6 +46,7 @@ function App() {
         <Navbar />
         {routes}
         <Footer />
+        <ThemSite/>
       </div>
     </siteContext.Provider>
   );

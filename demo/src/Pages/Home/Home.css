@@ -13,19 +13,22 @@
   width: 60%;
   height: 71rem;
   padding: 5rem 2rem;
+  background: var(--first-color);
 }
 .welcomeTitle {
-  border-bottom: 5px var(--second-color) solid;
+  border-bottom: 5px gray solid;
   border-radius: 10px;
   margin-bottom: 3rem;
 }
 .homeLeft h3 {
   font-size: 4rem;
+  color: var(--second-color);
 }
 
 .homeLeft p {
   font-size: 1.5rem;
   margin-bottom: 3rem;
+  color: gray;
 }
 .homeLeft ul {
   margin-left: 2rem;
@@ -35,6 +38,7 @@
 .homeLeft ul li {
   margin-bottom: 1rem;
   color: var(--second-color);
+  color: gray;
 }
 .homeBtns {
   width: 100%;

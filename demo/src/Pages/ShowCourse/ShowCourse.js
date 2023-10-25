@@ -85,7 +85,7 @@ export default function ShowCourse() {
           >
             <source
               className="video-player"
-              src="${videoTransfer.url}"
+              src={`'${findCourse.videoCourseSrcCms}'`}
               type="video/mp4"
             />
             <a href="https://videojs.com/html5-video-support/" target="_blank">
@@ -97,3 +97,7 @@ export default function ShowCourse() {
     </>
   );
 }
+
+
+
+
