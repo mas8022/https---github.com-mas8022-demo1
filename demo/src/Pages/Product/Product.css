@@ -24,7 +24,7 @@
 .paginationBtn {
   width: 5rem;
   height: 5rem;
-  color: var(--first-color);
+  color: #fff;
   background: var(--second-color);
   font-weight: 500;
   border-radius: 10px;

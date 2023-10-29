@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 import "./Navbar-medi.css";
 import { Link, NavLink } from "react-router-dom";
@@ -7,12 +7,14 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import HomeIcon from "@mui/icons-material/Home";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import InfoIcon from "@mui/icons-material/Info";
+import { siteContext } from "../../Context";
 
 export default function Navbar() {
   const [searchInput, setSearchInput] = useState("");
   const [showCoursesListArray, setShowCoursesListArray] = useState([]);
   const sgList = useRef(null);
   const [productsArrayNavbar, setProductsArrayNavbar] = useState([]);
+  const navContext = useContext(siteContext);
 
   useEffect(() => {
     function closeSgListSearchBarHandle(event) {
@@ -82,28 +84,70 @@ export default function Navbar() {
         </div>
 
         <ul className="navRight">
-          <NavLink onClick={() => scrollUp()} to="/" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <li>HOME</li>
           </NavLink>
-          <NavLink onClick={() => scrollUp()} to="/product" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/product"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <li>PRODUCT</li>
           </NavLink>
 
-          <NavLink onClick={() => scrollUp()} to="/myBasket" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/myBasket"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <li>MYBASKET</li>
           </NavLink>
-          <NavLink onClick={() => scrollUp()} to="/profile" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
-            <li>PROFILE</li>
-          </NavLink>
-
-          <NavLink onClick={() => scrollUp()} to="/about" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'} >
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/about"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <li>ABOUT</li>
           </NavLink>
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/profile"
+            className={(link) => {
+              if (navContext.flagLogin) {
+                return link.isActive
+                  ? "navBarItemActive link profileActive"
+                  : "link profileActive";
+              } else {
+                return link.isActive
+                  ? "navBarItemActive link profileDeActive"
+                  : "link profileDeActive";
+              }
+            }}
+          >
+            <li>PROFILE</li>
+          </NavLink>
         </ul>
+
         <Link
           onClick={() => scrollUp()}
           to="/profile"
-          className="link ProfileNav"
+          className={
+            navContext.flagLogin
+              ? "ProfileNav link profileActiveMobile"
+              : "ProfileNav link profileDeActive"
+          }
         >
           <div
             style={{
@@ -115,17 +159,41 @@ export default function Navbar() {
         </Link>
 
         <ul className="bottomBar">
-          <NavLink onClick={() => scrollUp()} to="/" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <HomeIcon style={{ fontSize: 36 }} />
           </NavLink>
-          <NavLink onClick={() => scrollUp()} to="/product" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/product"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <InventoryIcon style={{ fontSize: 36 }} />
           </NavLink>
 
-          <NavLink onClick={() => scrollUp()} to="/myBasket" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/myBasket"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <ShoppingBasketIcon style={{ fontSize: 36 }} />
           </NavLink>
-          <NavLink onClick={() => scrollUp()} to="/about" className={(link) => link.isActive ? 'navBarItemActive link' : 'link'}>
+          <NavLink
+            onClick={() => scrollUp()}
+            to="/about"
+            className={(link) =>
+              link.isActive ? "navBarItemActive link" : "link"
+            }
+          >
             <InfoIcon style={{ fontSize: 36 }} />
           </NavLink>
         </ul>

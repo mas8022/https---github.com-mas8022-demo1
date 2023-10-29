@@ -46,7 +46,7 @@
   height: 5rem;
   border-radius: 5px;
   background: var(--second-color);
-  color: var(--first-color);
+  color: #fff;
   font-size: 2rem;
   display: flex;
   align-items: center;
@@ -82,5 +82,29 @@
 }
 .frfr {
   margin-bottom: 3rem;
+}
+.editModalBtn {
+  width: 5rem;
+  height: 5rem;
+  background: var(--second-color);
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -19rem;
+  right: -13rem;
+  border-radius: 50%;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all linear 0.3s;
+}
+.editModalBtn:hover{
+  background: var(--first-color);
+  color: var(--second-color);
+}
+.editModalBtn:active{
+  background: var(--second-color);
+  color: var(--first-color);
 }
 

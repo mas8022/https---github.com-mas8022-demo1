@@ -62,7 +62,7 @@
   width: 10rem;
   height: 3.5rem;
   background: var(--second-color);
-  color: var(--first-color);
+  color: #fff;
   font-size: 1.8rem;
   display: flex;
   align-items: center;

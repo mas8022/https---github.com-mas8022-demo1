@@ -98,16 +98,17 @@
 }
 .usersCmsList {
   width: 100%;
-  height: 42rem;
+  max-height: 42rem;
   border-top: 3px solid var(--second-color);
   border-bottom: 3px solid var(--second-color);
-  padding: 0 2rem;
+  padding: 2rem;
   overflow-y: scroll;
+  transition: all ease-out 1s;
 }
 .usersCmsListItem {
   width: 100%;
   height: 15rem;
-  background: #00000059;
+  background: gray;
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 1.5rem 3rem;
@@ -133,9 +134,9 @@
   height: 10rem;
   border-radius: 50%;
   background: var(--first-color);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
 }
 .describeUsersCmsListItem p {
   font-size: 1.5rem;

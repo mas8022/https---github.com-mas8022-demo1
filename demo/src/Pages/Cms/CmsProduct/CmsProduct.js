@@ -141,6 +141,18 @@ export default function CmsProduct() {
     });
   };
 
+  const smoothSlideCmsProduct = () => {
+    setTimeout(() => {
+      console.log("click");
+      if (document.querySelector(".sgCourseListCms").children.length === 0) {
+        document.querySelector(".sgCourseListCms").style.height = "0px";
+      } else {
+        document.querySelector(".sgCourseListCms").style.height =
+          document.querySelector(".sgCourseListCms").scrollHeight + "px";
+      }
+    }, 1);
+  };
+
   return (
     <div className="cmsProduct">
       <CmsNavbar />
@@ -222,8 +234,10 @@ export default function CmsProduct() {
         </div>
         <div className="rightCmsProduct">
           <input
-            value={cmsInput}
-            onChange={(e) => setCmsInput(e.target.value)}
+            onChange={(e) => {
+              setCmsInput(e.target.value);
+              smoothSlideCmsProduct();
+            }}
             type="text"
             className="searchCourseBarCms"
             placeholder="search course:"

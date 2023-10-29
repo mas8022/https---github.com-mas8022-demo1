@@ -36,7 +36,7 @@
 }
 .navRight li {
   font-size: 1.5rem;
-  color: var(--first-color);
+  color: #fff;
   margin-left: 2rem;
   cursor: pointer;
   transition: all ease-in 0.2s;
@@ -161,4 +161,13 @@
 }
 .navBarItemActive{
   filter: brightness(50%);
+}
+.profileActive{
+  display: block;
+}
+.profileActiveMobile{
+  display: none;
+}
+.profileDeActive{
+  display: none !important;
 }

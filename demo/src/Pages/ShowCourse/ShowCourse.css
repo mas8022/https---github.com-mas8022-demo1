@@ -50,7 +50,7 @@
   padding: 0.5rem 1.5rem;
   font-size: 1.6rem;
   font-weight: 400;
-  color: var(--first-color);
+  color: #fff;
   background: var(--second-color);
   border-radius: 5px;
   cursor: pointer;

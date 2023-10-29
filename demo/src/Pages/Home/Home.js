@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import "./Home-media.css";
 import SiteModals from "../../component/tools/Modals/Modals";
 import ProductSlider from "../../component/ProductSlider/ProductSlider";
+import { siteContext } from "../../Context";
 
 export default function Home() {
   const [closeLoginModal, setCloseLoginModal] = useState(false);
+  const homeContext = useContext(siteContext)
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <>
@@ -40,27 +46,27 @@ export default function Home() {
             </ul>
 
             <div className="homeBtns">
-              <div
-                onClick={() => setCloseLoginModal(true)}
-                className="loginBtn"
-              >
-                Login
-              </div>
-
               <Link to="/about" className="link">
                 <div onClick={() => window.scrollTo(0, 0)} className="moreBtn">
                   More...
                 </div>
               </Link>
+              <div
+                onClick={() => setCloseLoginModal(true)}
+                className={!homeContext.flagLogin ? "loginBtn" : 'loginBtnDeActive'}
+              >
+                Login
+              </div>
             </div>
           </div>
 
           <div className="homeRight"></div>
         </div>
-        <ProductSlider/>
+        <ProductSlider />
       </div>
 
       <SiteModals
+        mode="login"
         closeLoginModal={closeLoginModal}
         setCloseLoginModal={setCloseLoginModal}
       />

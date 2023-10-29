@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./UsersInfo.css";
-import './UserInfo-media.css'
+import "./UserInfo-media.css";
 import CmsNavbar from "../CmsComponent/CmsNavbar";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -84,9 +84,19 @@ export default function UsersInfo() {
       `https://demo1react-a5250-default-rtdb.firebaseio.com/users/${userId}.json`,
       {
         method: "PUT",
-        body: JSON.stringify(editUserCms)
+        body: JSON.stringify(editUserCms),
       }
     ).then(() => window.location.reload());
+  };
+
+  const smoothSlide = () => {
+    document.querySelector('.usersCmsList').style.height = document.querySelector('.usersCmsList').scrollHeight + "px"
+    setTimeout(() => {
+      if (document.querySelectorAll('.usersCmsListItem').length == 0) {
+        document.querySelector('.usersCmsList').style.height = "0px"
+        console.log(document.querySelectorAll('.usersCmsListItem').length);
+      }
+    }, 1);
   };
 
   return (
@@ -159,7 +169,10 @@ export default function UsersInfo() {
         </div>
         <div className="userInfoCmsFlex-right">
           <input
-            onChange={(e) => setUserSearchInput(e.target.value)}
+            onChange={(e) => {
+              smoothSlide();
+              setUserSearchInput(e.target.value);
+            }}
             type="text"
             placeholder="search users:"
           />
@@ -185,10 +198,18 @@ export default function UsersInfo() {
                         Password:<span>{user[1].password}</span>
                       </p>
                     </div>
-                    <div
-                      style={{ background: `url(${user[1].imageSrc})` }}
+
+                    <img
+                      onClick={() => console.log(user[1].imageSrc)}
                       className="imageUsersCmsListItem"
-                    ></div>
+                      src={
+                        user[1].imageSrc
+                          ? user[1].imageSrc
+                          : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                      }
+                      alt="userImage"
+                    />
+                    
                   </div>
                 ))
               : ""}

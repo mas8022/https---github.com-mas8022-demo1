@@ -93,24 +93,26 @@
 }
 .searchCourseBarCms {
   width: 70%;
-  height: 5rem;
+  height: 5rem !important;
   border-radius: 10px;
   font-size: 2rem;
   font-weight: 600;
   color: gray;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   margin-bottom: 4rem;
+  background: var(--first-color);
 }
 .rightCmsProduct {
   justify-content: flex-start;
 }
 .sgCourseListCms {
   width: 100%;
-  height: auto;
+  max-height: 43rem;
   padding: 3rem;
   overflow-y: scroll;
   border-top: 3px solid var(--second-color);
   border-bottom: 3px solid var(--second-color);
+  transition: all ease-out 1s;
 }
 
 .sgCourseListCmsItem {

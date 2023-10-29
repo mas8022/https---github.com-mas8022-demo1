@@ -6,7 +6,11 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { siteContext } from "../../../Context";
 import { Link } from "react-router-dom";
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
+export default function SiteModals({
+  closeLoginModal,
+  setCloseLoginModal,
+  mode,
+}) {
   let contextInfo = useContext(siteContext);
 
   const [userName, setUserName] = useState("");
@@ -19,10 +23,21 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
   const [passwordRegexFlag, setPasswordRegexFlag] = useState(false);
   const [colorClickFromFlag, setColorClickFromFlag] = useState(false);
   const [loginCms, setLoginCms] = useState(false);
-
+  const [allUser, setAllUser] = useState([]);
   /////////////////////////////////////////////////////
   const managerPass = "12345";
   /////////////////////////////////////////////////////
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (user) {
+      contextInfo.setNewUserInfo(user);
+    }
+
+    fetch("https://demo1react-a5250-default-rtdb.firebaseio.com/users.json")
+      .then((res) => res.json())
+      .then((data) => setAllUser(Object.entries(data)));
+  }, []);
 
   const closeLoginModalHandler = () => {
     setCloseLoginModal((perv) => !perv);
@@ -30,9 +45,11 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
     setPhoneNumber("");
     setEmail("");
     setPassword("");
+    window.location.reload()
   };
 
   const clickLoginModalHandler = () => {
+
     if (
       !phonNumberRegexFlag &&
       !emailRegexFlag &&
@@ -51,12 +68,41 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
         password,
         imageSrc,
       };
-      contextInfo.setNewUserInfo(newUser);
-      setColorClickFromFlag(true);
-      fetch("https://demo1react-a5250-default-rtdb.firebaseio.com/users.json", {
-        method: "POST",
-        body: JSON.stringify(newUser),
-      }).then((res) => console.log(res));
+
+      if (mode === "login") {
+        
+        contextInfo.setNewUserInfo(newUser);
+        setColorClickFromFlag(true);
+        if (newUser) {
+          contextInfo.setFlagLogin(true)
+          fetch(
+            "https://demo1react-a5250-default-rtdb.firebaseio.com/users.json",
+            {
+              method: "POST",
+              body: JSON.stringify(newUser),
+            }
+          ).then((res) => console.log(res));
+        }
+      } else if (mode === "edit") {
+        const foundUser = allUser.find((user) => user[1].email === email);
+        console.log(foundUser)
+
+        if (foundUser !== undefined && foundUser && foundUser.length === 2) {
+          contextInfo.setNewUserInfo(newUser);
+          setColorClickFromFlag(true);
+          fetch(
+            `https://demo1react-a5250-default-rtdb.firebaseio.com/users/${
+              allUser.find((user) => user[1].email == email)[0]
+            }.json`,
+            {
+              method: "PUT",
+              body: JSON.stringify(newUser),
+            }
+          );
+        } else {
+          setColorClickFromFlag(false);
+        }
+      }
     } else {
       setColorClickFromFlag(false);
     }
@@ -89,8 +135,20 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
         password,
         imageSrc,
       };
-      contextInfo.setNewUserInfo(newUser);
-      setColorClickFromFlag(true);
+
+
+      if (mode === "login") {
+        contextInfo.setNewUserInfo(newUser);
+        setColorClickFromFlag(true);
+      } else {
+        const foundUser = allUser.find((user) => user[1].email === email);
+        if (foundUser !== undefined && foundUser && foundUser.length === 2) {
+          contextInfo.setNewUserInfo(newUser);
+          setColorClickFromFlag(true);
+        } else {
+          setColorClickFromFlag(false);
+        }
+      }
     } else {
       setColorClickFromFlag(false);
     }
@@ -135,6 +193,10 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
       setPasswordRegexFlag(false);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(contextInfo.newUserInfo))
+  },[contextInfo.newUserInfo])
 
   return ReactDOM.createPortal(
     <div className={closeLoginModal ? "momLoginModal active" : "momLoginModal"}>
@@ -199,8 +261,9 @@ export default function SiteModals({ closeLoginModal, setCloseLoginModal }) {
             write corrector between 5 and 8
           </p>
           <input
-            onChange={(e) => setImageSrc(e.target.value)}
-            value={imageSrc}
+            onChange={(e) => {
+              setImageSrc(URL.createObjectURL(e.target.files[0]));
+            }}
             className="passwordLoginForm"
             type="file"
             placeholder="set image"

@@ -1,11 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import "./Profile-media.css";
 import { siteContext } from "../../Context";
+import SiteModals from "../../component/tools/Modals/Modals";
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function Profile() {
   let userData = useContext(siteContext);
+  const [closeLoginModal, setCloseLoginModal] = useState(false);
+  const [person, setPerson] = useState({});
+
+  useLayoutEffect(() => {
+    setPerson(userData.newUserInfo);
+  }, []);
 
   return (
     <>
@@ -14,19 +22,19 @@ export default function Profile() {
           <div className="UserInfo">
             <label htmlFor="#username">Username:</label>
             <label className="frfr" id="username">
-              {userData.newUserInfo.userName}
+              {person.userName}
             </label>
             <label htmlFor="#phoneNumber">Phone number:</label>
             <label className="frfr" id="phoneNumber">
-              {userData.newUserInfo.phoneNumber}
+              {person.phoneNumber}
             </label>
             <label htmlFor="#email">Email:</label>
             <label className="frfr" id="email">
-              {userData.newUserInfo.email}
+              {person.email}
             </label>
             <label htmlFor="#password">Password:</label>
             <label className="frfr" id="password">
-              {userData.newUserInfo.password}
+              {person.password}
             </label>
           </div>
           <Link
@@ -39,24 +47,35 @@ export default function Profile() {
         </div>
 
         <div className="rightProfilePage">
-          <div
+          <img
             className="ProfilePageImage"
-            style={{
-              background: `url(${
-                userData.newUserInfo.imageSrc
-                  ? `'${userData.newUserInfo.imageSrc}'`
-                  : "https://centrechurch.org/wp-content/uploads/2022/03/img-person-placeholder.jpeg"
-              })`,
-            }}
-          ></div>
+            src={
+              person.imageSrc
+                ? person.imageSrc
+                : "https://centrechurch.org/wp-content/uploads/2022/03/img-person-placeholder.jpeg"
+            }
+            alt="profileImage"
+          />
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque
             fugiat assumenda ipsa, est magni neque quisquam voluptatem
             perferendis quo animi dicta et, aliquid aliquam asperiores,
             molestias pariatur tenetur perspiciatis accusantium.
           </p>
+
+          <div
+            onClick={() => setCloseLoginModal(true)}
+            className="editModalBtn"
+          >
+            <EditIcon style={{ fontSize: 30 }} />
+          </div>
         </div>
       </div>
+      <SiteModals
+        mode="edit"
+        closeLoginModal={closeLoginModal}
+        setCloseLoginModal={setCloseLoginModal}
+      />
     </>
   );
 }
