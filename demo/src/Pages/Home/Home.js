@@ -8,11 +8,23 @@ import { siteContext } from "../../Context";
 
 export default function Home() {
   const [closeLoginModal, setCloseLoginModal] = useState(false);
-  const homeContext = useContext(siteContext)
+  const homeContext = useContext(siteContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("user"))) {
+      let userCopy = JSON.parse(localStorage.getItem("user"));
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const imageDataUrl = e.target.result;
+        userCopy.imageSrc = imageDataUrl
+        localStorage.setItem('user', JSON.stringify(userCopy))
+      };
+    }
+  }, []);
 
   return (
     <>
@@ -53,7 +65,9 @@ export default function Home() {
               </Link>
               <div
                 onClick={() => setCloseLoginModal(true)}
-                className={!homeContext.flagLogin ? "loginBtn" : 'loginBtnDeActive'}
+                className={
+                  !homeContext.flagLogin ? "loginBtn" : "loginBtnDeActive"
+                }
               >
                 Login
               </div>

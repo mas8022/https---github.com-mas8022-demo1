@@ -50,7 +50,21 @@ function App() {
         setCoursesArray(Object.entries(data));
         setLoader(false);
       });
+      
   }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   useLayoutEffect(() => {
     const uniqueProduct = [];

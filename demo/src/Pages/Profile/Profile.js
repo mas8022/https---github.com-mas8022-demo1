@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Profile.css";
 import "./Profile-media.css";
@@ -11,7 +11,7 @@ export default function Profile() {
   const [closeLoginModal, setCloseLoginModal] = useState(false);
   const [person, setPerson] = useState({});
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setPerson(userData.newUserInfo);
   }, []);
 
@@ -50,8 +50,8 @@ export default function Profile() {
           <img
             className="ProfilePageImage"
             src={
-              person.imageSrc
-                ? person.imageSrc
+              JSON.parse(localStorage.getItem('user')).imageSrc !== undefined
+                ? JSON.parse(localStorage.getItem('user')).imageSrc
                 : "https://centrechurch.org/wp-content/uploads/2022/03/img-person-placeholder.jpeg"
             }
             alt="profileImage"

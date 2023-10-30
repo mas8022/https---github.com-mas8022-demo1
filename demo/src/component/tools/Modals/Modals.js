@@ -198,6 +198,20 @@ export default function SiteModals({
     localStorage.setItem('user', JSON.stringify(contextInfo.newUserInfo))
   },[contextInfo.newUserInfo])
 
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+      const imageDataUrl = e.target.result;
+      setImageSrc(imageDataUrl);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+
   return ReactDOM.createPortal(
     <div className={closeLoginModal ? "momLoginModal active" : "momLoginModal"}>
       <div className="loginModal">
@@ -261,9 +275,10 @@ export default function SiteModals({
             write corrector between 5 and 8
           </p>
           <input
-            onChange={(e) => {
-              setImageSrc(URL.createObjectURL(e.target.files[0]));
-            }}
+            onChange={handleImageUpload}
+            // onChange={(e) => {
+            //   setImageSrc(URL.createObjectURL(e.target.files[0]));
+            // }}
             className="passwordLoginForm"
             type="file"
             placeholder="set image"
