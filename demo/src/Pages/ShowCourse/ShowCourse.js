@@ -4,6 +4,7 @@ import "./ShowCourse-media.css";
 import { useParams } from "react-router-dom";
 import { siteContext } from "../../Context";
 import Loader from "../../component/Loader/Loader";
+import VideoPlayer from "../../component/tools/VideoPlayer/VideoPlayer";
 
 export default function ShowCourse() {
   const [findCourse, setFindCourse] = useState([]);
@@ -74,30 +75,10 @@ export default function ShowCourse() {
         <div className="rightShowCourse">
           <h2 className="courseTitle">{findCourse.courseNameCms}</h2>
           <hr />
-          <video
-            id="my-video"
-            className="video-js"
-            controls
-            preload="auto"
-            width="100%"
-            height="100%"
-            data-setup="{}"
-          >
-            <source
-              className="video-player"
-              src={`'${findCourse.videoCourseSrcCms}'`}
-              type="video/mp4"
-            />
-            <a href="https://videojs.com/html5-video-support/" target="_blank">
-              supports HTML5 video
-            </a>
-          </video>
+          <VideoPlayer url={findCourse.videoCourseSrcCms} />
+
         </div>
       </div>
     </>
   );
 }
-
-
-
-
