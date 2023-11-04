@@ -5,7 +5,6 @@ import "./Home-media.css";
 import SiteModals from "../../component/tools/Modals/Modals";
 import ProductSlider from "../../component/ProductSlider/ProductSlider";
 import { siteContext } from "../../Context";
-
 export default function Home() {
   const [closeLoginModal, setCloseLoginModal] = useState(false);
   const homeContext = useContext(siteContext);
@@ -76,7 +75,8 @@ export default function Home() {
 
           <div className="homeRight"></div>
         </div>
-        <ProductSlider />
+        {homeContext.coursesArray.length !== 0 ? <ProductSlider /> : null}
+        
       </div>
 
       <SiteModals

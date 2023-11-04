@@ -33,7 +33,7 @@ export default function Product() {
       .then((data) => {
         setNewPaginationArray(Object.entries(data).slice(0, 7));
         setLoader(false);
-      });
+      }).catch(() => setLoader(true))
   }, []);
 
   const paginationBtnHandler = (item, e) => {

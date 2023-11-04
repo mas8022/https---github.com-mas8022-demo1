@@ -49,22 +49,9 @@ function App() {
       .then((data) => {
         setCoursesArray(Object.entries(data));
         setLoader(false);
-      });
+      }).catch(() => setFlagLogin(true))
       
   }, []);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   useLayoutEffect(() => {
     const uniqueProduct = [];
